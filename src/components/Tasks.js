@@ -5,7 +5,7 @@ export const Tasks = () => {
     const [data, setData] = useState([]);
 
     const load_data = async () => {
-        const response = await fetch(`http://jsonplaceholder.typicode.com/todos`);
+        const response = await fetch(`https://jsonplaceholder.typicode.com/todos`);
         let data = await response.json();
         console.log(data);
         setData(data);
