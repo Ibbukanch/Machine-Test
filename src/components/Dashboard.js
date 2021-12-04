@@ -3,8 +3,9 @@ import { Home } from "./Home";
 import { Tasks } from "./Tasks";
 import { User } from "./User";
 
-export const Dashboard = () => {
+export const Dashboard = (props) => {
 
+    const {setAuthorized} = props
     const [activePage, setActivePage] = useState('Home');
 
     return (
@@ -37,7 +38,7 @@ export const Dashboard = () => {
 
       <div class="row">
         <div class="col-12">
-        {activePage === 'Home' ? <Home /> : activePage === 'Tasks' ? <Tasks/> : activePage === 'User' ? <User/> : ''}          
+        {activePage === 'Home' ? <Home /> : activePage === 'Tasks' ? <Tasks/> : activePage === 'User' ? <User setAuthorized={setAuthorized} /> : ''}          
         </div>
       </div>
     </div>

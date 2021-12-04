@@ -8,6 +8,6 @@ export const MachineTest = () => {
     const [is_authorized, setAuthorized] = useState(false);
 
     return(
-        getToken() ? <Dashboard /> : <Login setAuthorized={setAuthorized}/>
+        getToken() ? <Dashboard setAuthorized={setAuthorized} /> : <Login setAuthorized={setAuthorized} />
     )
 }
