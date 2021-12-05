@@ -21,7 +21,7 @@ export const Tasks = () => {
     }, []);
 
     return (
-        <div class="table-responsive">
+        <div class="table-responsive" style={{marginTop: "1rem"}}>
             <table class="table">
                 <thead>
                     <tr>

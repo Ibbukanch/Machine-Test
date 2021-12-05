@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { Dashboard } from "./Dashboard";
-import { getToken } from "./helper";
 import { Login } from "./Login";
 
 export const MachineTest = () => {
@@ -8,6 +7,6 @@ export const MachineTest = () => {
     const [is_authorized, setAuthorized] = useState(false);
 
     return(
-        getToken() ? <Dashboard setAuthorized={setAuthorized} /> : <Login setAuthorized={setAuthorized} />
+        is_authorized ? <Dashboard setAuthorized={setAuthorized} /> : <Login setAuthorized={setAuthorized} />
     )
 }

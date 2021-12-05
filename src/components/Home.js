@@ -5,7 +5,7 @@ export const Home = () => {
     const [content, setContent] = useState('');
 
     return (
-        <div class="row gy-5">
+        <div class="row gy-5" style={{marginTop: "1rem"}}>
             <Dropdown setContent={setContent} />
             <Information content={content} />
         </div>    

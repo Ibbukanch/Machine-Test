@@ -19,7 +19,7 @@ export const User = (props) => {
     }
 
     return (
-    <div>
+    <div style={{marginTop: "1rem"}}>
     <form onSubmit={(e)=>e.preventDefault()}>
     <div class="row mb-3">
         <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
