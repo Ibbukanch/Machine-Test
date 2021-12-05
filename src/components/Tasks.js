@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 export const Tasks = () => {
 
     const [data, setData] = useState([]);
+    const [notify, setNotify] = useState({msg: '', show: false});
 
     const load_data = async () => {
         const response = await fetch(`https://jsonplaceholder.typicode.com/todos`);
@@ -13,6 +14,7 @@ export const Tasks = () => {
 
     const removeObj = (id) => {
         const new_data = data.filter(function(el) { return el.id != id; });
+        setNotify({msg: 'Object Has been Deleted !', show: true});
         setData(new_data);
     }
 
@@ -21,6 +23,13 @@ export const Tasks = () => {
     }, []);
 
     return (
+        <div>
+        {notify.show && (
+            <div class="alert alert-success" role="alert">
+                {notify.msg}
+            </div>
+        )}
+        
         <div class="table-responsive" style={{marginTop: "1rem"}}>
             <table class="table">
                 <thead>
@@ -44,6 +53,7 @@ export const Tasks = () => {
                 ))}
                 </tbody>
             </table>
+        </div>
         </div>
     )
 }
