@@ -1,5 +1,4 @@
-export const getToken = () => {
-    const token = localStorage.getItem('email') ? localStorage.getItem('email') : null
-    console.log();
-    return token
+export const setCredentials = () => {
+    localStorage.setItem('email', 'demo@gmail.com');
+    localStorage.setItem('password', 'demo1234');
 }

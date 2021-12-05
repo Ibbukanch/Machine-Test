@@ -1,14 +1,19 @@
+import { useState } from "react/cjs/react.development";
+
 export const Login = (props) => {
 
     const {setAuthorized} = props
+
+    const [show_error, setError] = useState({msg: '', show: false});
+
     const handleSubmit = (e) => {
-        e.preventDefault();
-        if(e.target.email.value === "demo@gmail.com" && e.target.password.value === "demo1234") {
-            localStorage.setItem('email', e.target.email.value);
-            localStorage.setItem('password', e.target
-            .password.value);
-            setAuthorized(true);
-        }
+      e.preventDefault();
+      if(e.target.email.value === localStorage.getItem('email') && e.target.password.value === localStorage.getItem('password')) {
+        setAuthorized(true);
+      }
+      else {
+        setError({msg: 'Please Check Username and Password', show: true})
+      }
     }
 
     return (
@@ -20,7 +25,13 @@ export const Login = (props) => {
                 <div class="card-body p-5 text-center">
                 <form onSubmit={handleSubmit}>  
                   <h3 class="mb-5">Sign in</h3>
-                    
+
+                  {show_error.show && (
+                  <div class="alert alert-danger" role="alert">
+                    {show_error.msg}
+                  </div>
+                  )}
+
                   <div class="form-outline mb-4">
                     <input  name="email" type="email" id="email" placeholder="Email Address" class="form-control form-control-lg" required />
                   </div>

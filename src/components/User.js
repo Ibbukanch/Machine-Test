@@ -5,21 +5,27 @@ export const User = (props) => {
 
     const [flag, setFlag] = useState('');
     const [newPassword, setNewPassword] = useState('');
+    const [notify, setNotify] = useState({msg: '', show: false});
 
     const handleSubmit = () => {
-        console.log(newPassword);
         if(!newPassword){ alert('Please Enter New Password') }
-        else { localStorage.setItem('password', newPassword); }
+        else { 
+            localStorage.setItem('password', newPassword); 
+            setNotify({msg: 'Password Changed Successfully', show: true});
+        }
     }
 
     const Logout = () => {
-        localStorage.setItem('email', '');
-        localStorage.setItem('password', '');
         setAuthorized(false);
     }
 
     return (
     <div style={{marginTop: "1rem"}}>
+    {notify.show && (
+        <div class="alert alert-success" role="alert">
+            {notify.msg}
+        </div>
+    )}
     <form onSubmit={(e)=>e.preventDefault()}>
     <div class="row mb-3">
         <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
